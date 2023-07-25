@@ -8,7 +8,7 @@
 
 
 ## 규칙
-### **html -> css_1 -> js_1 -> html -> css_2 -> js_2** 순으로 진행
+### **html -> css_1 -> js_1 -> css_2 -> js_2 -> html** 순으로 진행
 ### git convetion
 1. 제목 [Title]
    1. 대문자로 시작할 것
