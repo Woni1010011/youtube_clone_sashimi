@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    background-color: #212121;
+}
+
+.Container_Nav{
+    display: flex;
+    width: 1440px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.Hamburger_Button{
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+
+.Item_YT_Button{
+    display: flex;
+    padding: 8px;
+    gap: 10px;
+}
+.Youtube_Logo{
+    display: flex;
+    padding: 18px 14px 18px 16px;
+    flex-direction: column;
+    gap: 10px;
+}
+
