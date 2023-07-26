@@ -157,7 +157,7 @@ body
 {
     display: flex;
     padding: 0.25rem 0.875rem;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.625rem;
 }
 
