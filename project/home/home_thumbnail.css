@@ -1,32 +1,131 @@
-body{
-    background-color:black;
+html, body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
 }
 
+.item-selected {
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    padding: 8px;
+    margin: 5px;
+    color: #303030;
+    border: 0.3px solid var(--gray-color, #AAA);
+    background: white;
+}
 
-/* 박스 한개라도 만들어보려고 했는데..
-
-... 죄송합니다...
-.Thumbnail_Item {
-    
+.item_scroll {
+    width: 100%;
+    overflow: auto;
     display: flex;
-    width: 276px;
-    height: 247px;
-    padding-bottom: 0px;
+    align-items: center;
+    background-color: aquamarine;
 }
 
-.Images {
-    width: 276px;
-    height: 155px;
+.item {
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    border: 0.3px solid var(--gray-color, #AAA);
+    background: var(--border-color, #303030);
 }
 
-.Image 1 {
-    Copy
-    width: 276px;
-    height: 155px;
+
+
+.next_button {
+    height: 10%;
 }
 
-.VideoTime {
-    width: 276px;
-    height: 155px;
+.container_topmenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
-*/
+
+.topmenu_list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail_info > .desc {
+    position: relative;
+  
+}
+
+.thumbnail_info > .desc > .title{
+    
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    
+    /* max-height: 2.rem; */
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+    
+}
+
+.thumbnail_info > .desc > .chanel_name{
+    width: 100%;
+    color: #aaa;
+    -webkit-line-clamp: 2;
+    
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+
+}
+
+.thumbnail_info > .desc > .view_time{
+    color: #aaa;
+}
+
+
+                
+
+
+.user_avatar {
+    margin-right: 12px;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.thumbnail_info {
+    padding-top: 12px;
+    display: flex;
+
+}
+
+
+.images > img {
+    height: auto;
+    width: 100%;
+    border-radius: 2%;
+}
+.container_thumbnail {
+    height: 100%;
+
+}
+
+.row {
+    display: flex;
+}
+
+.thumbnail_item {
+    margin: 8px;
+    width: 32%;
+}
+
+
