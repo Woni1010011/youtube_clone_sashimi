@@ -1,32 +1,67 @@
-body{
-    background-color:black;
+html, body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.thumbnail_info > .desc {
+    width: 100%;
+}
+
+.thumbnail_info > .desc > .title{
+    width: 100%;
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 500;
+ 		
+}
+
+.thumbnail_info > .desc > .chanel_name{
+    width: 100%;
+    color: #aaa;
+
+}
+
+.thumbnail_info > .desc > .view_time{
+    color: #aaa;
 }
 
 
-/* 박스 한개라도 만들어보려고 했는데..
+                
 
-... 죄송합니다...
-.Thumbnail_Item {
-    
+
+.user_avatar {
+    margin-right: 12px;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.thumbnail_info {
+    padding-top: 12px;
     display: flex;
-    width: 276px;
-    height: 247px;
-    padding-bottom: 0px;
+
 }
 
-.Images {
-    width: 276px;
-    height: 155px;
+
+.images > img {
+    height: auto;
+    width: 100%;
+    border-radius: 2%;
+}
+.container_thumbnail {
+    height: 100%;
+
 }
 
-.Image 1 {
-    Copy
-    width: 276px;
-    height: 155px;
+.row {
+    display: flex;
 }
 
-.VideoTime {
-    width: 276px;
-    height: 155px;
+.thumbnail_item {
+    margin: 8px;
+    width: 32%;
 }
-*/
+
