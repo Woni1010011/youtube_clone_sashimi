@@ -1,0 +1,59 @@
+/* home_thumbnail.css 배경색과 달라 새로 만듦 */
+
+
+.material-symbols-outlined {
+    display: inline-block;
+    padding: 8px 16px; 
+    background-color: #212121;
+    color: #fff; 
+    font-size: 24px;
+    line-height: 1; 
+}
+
+.container_topmenu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: 303030;
+    background-color: #212121;
+    overflow-x: hidden;
+
+    height: 100%;
+    width: 100%;
+}
+
+.item_scroll{
+    display: flex;
+    flex-direction: row; 
+    background-color: #212121;
+    padding: 10px;
+}
+/* chips 관련*/
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 0.3px solid #fff; 
+    background-color: #303030;
+    border-radius: 32px; 
+    color: #fff; 
+    font-weight: bold; 
+    text-align: center; 
+    word-break: keep-all; 
+    margin: 12px 12px 12px 0px
+}
+
+
+
+/* chips 마우스 오버 시 스타일 */
+a:hover {
+    background-color: #ddd;
+}
+
+
+.next_button svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    font-size: 24px;
+}
