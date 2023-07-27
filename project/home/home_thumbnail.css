@@ -46,7 +46,7 @@ html, body{
     flex: 1;
     display: flex;
     justify-content: flex-start;
-    background-color: aquamarine;
+    background-color: #303030;
 
     overflow-x: scroll;
 }
