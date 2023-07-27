@@ -1,5 +1,5 @@
 # youtube_clone_sashimi
-## 07.27 담당자
+## 07.28 담당자
 1. html : 주형님
 2. css_1 : 현빈님
 3. css_2 : 종윤님
