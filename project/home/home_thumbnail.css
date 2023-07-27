@@ -16,11 +16,7 @@ html, body{
 }
 
 .item_scroll {
-    width: 100%;
-    overflow: auto;
     display: flex;
-    align-items: center;
-    background-color: aquamarine;
 }
 
 .item {
@@ -44,14 +40,15 @@ html, body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .topmenu_list {
-    width: 100%;
+    flex: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    background-color: aquamarine;
+
+    overflow-x: scroll;
 }
 
 .thumbnail_info > .desc {
