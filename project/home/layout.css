@@ -1,0 +1,10 @@
+
+
+.thumbnail {
+    flex: 1;
+}
+
+
+.vertical_split {
+    display: flex;
+}
