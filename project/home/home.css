@@ -1,0 +1,506 @@
+body
+{
+    background-color: #212121;
+}
+
+
+.sidebar{
+    width: 15rem;
+    height: 60.5rem;
+}
+
+.Container_Nav
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    
+}
+
+.Item_Yt_Button
+{
+    display: inline-flex;
+    padding-right: 0px;
+    align-items: center;
+}
+
+.Hamburger_Button
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    padding: 0.5rem;
+    align-items: flex-start;
+    gap: 0.625rem;
+}
+
+.Youtube_Logo
+{
+    width: 5.625rem;
+    height: 1.25rem;
+    display: flex;
+    padding: 1.125rem 0.875rem 1.125rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+}
+
+.Item_SerchBox
+{
+    display: flex;
+    width: 29.375rem;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.SerchBox
+{
+    width: 22.625rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 0rem 0.125rem 0.125rem 0rem;
+    border: 1px solid var(--border-color, #303030);
+    background: #121212;
+}
+
+input[type=text] {
+	width: 22.5rem;
+    height: 2.4rem;
+    background: #121212;
+    outline: none;
+    border: none;
+    color: white;
+    padding-left: 1rem;  
+}
+
+
+.SerchBox_Button
+{
+    display: flex;
+    width: 3.0rem;
+    padding: 0.125rem 0.4375rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    border-radius: 0rem 0.125rem 0.125rem 0rem;
+    border: 1px solid var(--border-color, #303030);
+    background: var(--border-color, #303030);
+}
+
+.SerchBox_Button_Icon
+{
+    display: flex;
+    width: 3.125rem;
+    height: 2.25rem;
+    padding: 0.375rem 0.8125rem;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.Mic_Button
+{
+    display: flex;
+    padding: 0.5rem;
+    align-items: flex-start;
+    border-radius: 2.5rem;
+    margin-left: 0.25rem;
+    background: var(--black, #000);
+}
+
+.Mic_Button_Icon
+{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.Item_Profile
+{
+    display: flex;
+    width: 12.75rem;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.Nav_Icon_Container
+{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    align-items: flex-start;
+    gap: 0.625rem;
+}
+
+.Nav_Icon
+{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.Profile_Container
+{
+    display: flex;
+    padding: 0.25rem 0.875rem;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.User_Avatar
+{
+    width: 2rem;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 70%;
+}
+
+.Container_SideBar{
+    display: flex;
+    width: 15rem;
+    height: 60.5rem;
+    background: #212121;
+    overflow: hidden;
+    padding-right: 0px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.Box{
+    border-bottom: 0.1rem solid #303030;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#Top{
+    display: flex;
+    padding: 0.75rem 0rem;
+    flex-direction: column;
+    align-items: start;
+}
+
+.Menu{
+    display: flex;
+    padding: 0.5rem 0.5rem 0.6rem 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Menu_Item{
+    display: flex;
+    width: 1.2rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+#SideBar_Subscriptions{
+    display: flex;
+    padding-top: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.SideBar_Title{
+    display: flex;
+    padding: 0.8rem 1.5rem;
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.Menu_Sub{
+    height: 1.8rem;
+    display: flex;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    align-items: center;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.SideBar_User_Avatar{
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 70%;
+}
+
+main{
+    display: flex;
+
+}
+
+
+.topmenu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #212121;
+}
+
+/* .next_button_frame 눌렀을때 display: flex로 js추가필요*/
+.reverse_next_button_frame{
+    display: none;   
+    position: absolute;
+    padding: 1.25rem;
+    align-items: flex-start;
+    gap: 0.625rem;
+    z-index: 2;
+    background-color: rgba(30,30,30,0.9)
+}
+
+.item-end{
+    position: relative;
+    z-index: 0;
+}
+
+/* .reverse_next_button_frame 눌렀을때 display: none로 js추가필요*/
+/* 스위치 눌렀을시 스크롤 기능 구현 필요 */
+.next_button_frame{
+    display: flex;
+    position: absolute;
+    right: 0;
+    padding: 1.25rem;
+    align-items: flex-end;
+    gap: 0.625rem;
+    z-index: 2;
+    background-color: rgba(30,30,30,0.9)
+}
+
+
+
+
+/* 탑메뉴style */
+/* home_thumbnail.css 배경색과 달라 새로 만듦 */
+
+
+/* 
+.container_topmenu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #303030;
+    background-color: #212121;
+    overflow-x: hidden;
+
+    height: 100%;
+    width: 100%;
+} */
+
+.topmenu_list .item_scroll{
+    display: flex;
+    flex-direction: row; 
+    background-color: #212121;
+    border-top: 0.1rem solid #303030;
+    border-bottom: 0.1rem solid #303030;
+}
+/* chips 관련*/
+a .item {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border: 0.1px solid var(--gray-color, #AAA);
+    background-color: #303030;
+    border-radius: 2rem; 
+    color: #fff; 
+
+    text-align: center; 
+    word-break: keep-all; 
+    margin: 12px 12px 12px 12px;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+/* chips 마우스 오버 시 스타일 */
+a .item:hover {
+    background-color: #ddd;
+}
+
+
+.next_button svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    font-size: 24px;
+}
+
+
+/* 썸네일 style */
+
+.container_thumbnail{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    padding: 0.5rem;
+
+}
+
+.item-selected {
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    padding: 8px;
+    margin: 5px;
+    color: #303030;
+    border: 0.3px solid var(--gray-color, #AAA);
+    background: white;
+}
+
+.item_scroll {
+    display: flex;
+}
+
+.item {
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    border: 0.3px solid var(--gray-color, #AAA);
+    background: var(--border-color, #303030);
+}
+
+
+
+.next_button {
+    height: 10%;
+}
+
+.container_topmenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .topmenu_list {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #303030;
+
+    overflow-x: scroll;
+} */
+
+.images{
+    position: relative;
+    display: inline-block;
+}
+
+.videotime{
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0.6rem;
+    margin: 0;
+    padding: 0.25rem; 
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: var(--black, #000);
+}
+
+
+.thumbnail_info > .desc {
+    position: relative;
+  
+}
+
+.thumbnail_info > .desc > .title{
+    
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.thumbnail_info > .desc > .chanel_name{
+    padding-top: 0.25rem;
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.thumbnail_info > .desc > .view_time{
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.user_avatar {
+    margin-right: 12px;
+    border-radius: 50%;
+    height: 2.25rem;
+    width: 2.25rem;
+}
+
+.thumbnail_info {
+    padding-top: 12px;
+    display: flex;
+}
+
+.images > img {
+    height: auto;
+    width: 100%;
+    border-radius: 2%;
+}
+.container_thumbnail {
+    height: 100%;
+
+}
+
+.row {
+    display: flex;
+    /* justify-content:flex-start; */
+    padding-bottom: 1.5rem;    
+}
+
+.thumbnail_item {
+    margin: 1rem;
+    width: 20%;
+}
+
+
