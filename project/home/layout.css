@@ -8,3 +8,14 @@
 .vertical_split {
     display: flex;
 }
+
+.vertical_split {
+    display: flex;
+}
+
+.horizontal_split {
+    display: flex;
+    flex-direction: column;
+}
+
+
