@@ -1,5 +1,5 @@
 .channel_section{
-    background-color: #303030;
+    background-color: black;
     height: 100%;
     width: 100%;
     display: block;
@@ -43,15 +43,54 @@
 .channel_toolbar {
     display: flex; 
     align-items: center; 
+    width: 90%;
 }
 
 .toolbars ul {
     display: flex; 
     list-style: none; 
     padding: 0; 
-    color: white;
+    color: rgba(255, 255, 255, 0.682);
 }
 
+
 .boolbar_menu {
-    margin-right: 10px; 
+    display: flex;
+    margin-right: 20px; 
+    margin-left: 20px;
+}
+.boolbar_menu:hover {
+    display: flex;
+    margin-right: 20px; 
+    margin-left: 20px;
+    color:white;
+    cursor: pointer;
+
+}
+
+
+.search{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    color: rgba(255, 255, 255, 0.682);
+
+    }
+
+input {
+    border: none; 
+    outline: none;
+    background-color: black;
+    caret-color : rgba(255, 255, 255, 0.682);
+    color: rgba(255, 255, 255, 0.682);
+    }
+
+input:focus {
+    border: none; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.682); /* 밑줄 설정 */
+    outline: none; 
+    background-color: black;
+    caret-color: rgba(255, 255, 255, 0.682);
+    color: rgba(255, 255, 255, 0.682);
 }
