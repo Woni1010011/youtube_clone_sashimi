@@ -128,3 +128,71 @@ http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
     
 })
 
+
+
+// topmenu : 브라우져 길이에 따른 화살표 표시 기능
+function hideElementIfEqualBrowserWidth() {
+    const topmenu = document.getElementsByClassName('item_scroll');
+    const nextbotton = document.getElementsByClassName('next_button_frame');
+
+    function checkWidth() {
+    // 브라우저의 너비를 가져옵니다.
+    const browserWidth = window.innerWidth;
+
+    // 탑메뉴의 너비를 가져옵니다.
+    const elementWidth = topmenu[0].offsetWidth;
+
+    if (browserWidth - 270 > elementWidth) {
+        nextbotton[0].style.display = 'none';  // 브라우저 너비 보다 탑메뉴 너비가 같거나 작으면 버튼을 숨깁니다.
+    } else {
+        nextbotton[0].style.display = 'flex';  // 버튼이 다시 보이도록 설정합니다.
+    }
+    }
+
+    // 페이지 로드 시 처음 한 번 실행합니다.
+    checkWidth();
+
+    // 브라우저 창 크기가 변경될 때마다 실행합니다.
+    window.addEventListener('resize', checkWidth);
+}
+
+// 페이지 로드 시 실행합니다.
+hideElementIfEqualBrowserWidth();
+
+
+
+
+const itemscroll = document.getElementsByClassName('item_scroll')
+const nextbtn = document.getElementsByClassName('next_button_frame');
+const reversebtn = document.getElementsByClassName('reverse_next_button_frame')
+
+// 탑메뉴 화살표 누를시 다른방향 화살표 보이는기능
+nextbtn[0].addEventListener('click', function () {
+    reversebtn[0].style.display = 'flex';
+    nextbtn[0].style.display = 'none';
+  }
+);  
+reversebtn[0].addEventListener('click', function () {
+    nextbtn[0].style.display = 'flex';
+    reversebtn[0].style.display = 'none';
+  }
+);
+
+// 버튼 스크롤 기능
+
+reversebtn[0].addEventListener('click', function () {
+// 왼쪽으로 스크롤 이동
+  itemscroll[0].scrollTo({
+    left: 0,
+    behavior: 'smooth'
+  });
+});
+
+nextbtn[0].addEventListener('click', function () {
+  // 오른쪽으로 스크롤 이동
+  const scrollWidth = itemscroll[0].scrollWidth;
+  itemscroll[0].scrollTo({
+    left: scrollWidth,
+    behavior: 'smooth'
+  });
+});
