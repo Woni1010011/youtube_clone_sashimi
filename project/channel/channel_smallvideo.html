@@ -6,16 +6,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@NaN,0,0,0" />
     <title>Document</title>
     <script src="./channel_smallvideo.js"></script>
-    <link href="./channel_smallvideo.html.css" rel="stylesheet">
+    <link href="./channel_smallvideo.css" rel="stylesheet">
 </head>
 <body>
     <div class="small_video">
         <div class="player">
             <div class="youtube_player">
-                <span>player_name</span>
-                <span class="material-symbols-outlined">
-                    info
-                </span>
+                <div class="player_info">
+                    <span id="player_name">player_name</span>
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                    <div class="video_img">
+                        <img src="../assets/oreumi.jpg" />
+                    </div>
                 <div class="bottom_controls">
                     <div class="timeline">
 
@@ -29,7 +33,7 @@
                     <span class="material-symbols-outlined">
                         volume_up
                     </span>
-                    <span>0:00 / 0:00</span>
+                    <span id="time">0:00 / 0:00</span>
                     <span class="material-symbols-outlined">
                         closed_caption
                     </span>
@@ -51,6 +55,10 @@
             </div>
         </div>
         <div class="video_desc">
+            <div class="play_video_img">
+                <img src="../assets/oreumi.jpg" />
+                <span>00:00</span>
+            </div>
             <div class="video_title">
                 <p>
                     타이틀
