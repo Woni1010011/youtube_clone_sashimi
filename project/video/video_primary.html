@@ -4,52 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
+    </head>
+    <link href="./video_primary.css" rel="stylesheet">
+    <link href="../common.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <body>
     <div class="videoplayer">
         <div>
             <!--chatgpt한테 영상 넣어달라고 부탁해서 넣었습니다.. ㅠ-->
-            <iframe width="640" height="360" src="https://www.youtube.com/embed/FhKh-lj9qtg" frameborder="0"
-                allowfullscreen></iframe>
+            <!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/FhKh-lj9qtg" frameborder="0"
+                allowfullscreen></iframe> -->
         </div>
     </div>
     <!--Video-Info-->
     <div class="video-info">
         <div>               
             <span class="video-title">Awesome Video Title</span>
-            <span class="channel-info">Channel Name &middot; 1.2M views &middot; 1 week ago</span>
-            <span class="material-symbols-outlined">thumb_up</span>
-            <span class="material-symbols-outlined">thumb_down</span>
+            <div class="info-container">
+                <div class="views-info">
+                    <p class="views-count">576,969</p>
+                    <p>views .</p>
+                    <p class="upload -info">Oct 8 2021</p>
+                </div>
+
+                <div class="thumb-info">
+                    <span class="material-symbols-outlined">thumb_up</span>
+                    <p>200</p>
+                    <span class="material-symbols-outlined">thumb_down</span>
+                    <p>200</p>
+                    <p class="svg-icon">
+                        <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M15 5.63 20.66 12 15 18.37V14h-1c-3.96 0-7.14 1-9.75 3.09 1.84-4.07 5.11-6.4 9.89-7.1l.86-.13V5.63M14 3v6C6.22 10.13 3.11 15.33 2 21c2.78-3.97 6.44-6 12-6v6l8-9-8-9z" fill="white"></path></svg>
+                    </p>
+                    
+                    <p class="svg-icon">
+                        <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M7.5 12c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm4.5-1.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm6 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" fill="white"></path></svg>
+                    </p>
+                </div>
+            </div>
             <!--공유 아이콘: 찾지 못함-->
         </div>
     </div>
-
+    <div class="edge-line"></div>
     <!--Video-Desc-->
-   <div class="video-desc">
-        <div class="frame1"> <!--frame1 : userphoto,name, subscribers number, subscribe button-->
+   <div class="video-desc-container">
+        <div class="channel-container"> <!--frame1 : userphoto,name, subscribers number, subscribe button-->
+
             <!--user-photo-->
             <div class="userphoto">
-                <img src="path/to/your/image.jpg" alt="Image description">
+                <img src="../assets/oreumi.jpg" alt="Image description">
             </div>
-            <!--user-name-->
+
+            <div class="channel-info">
+                <!--user-name-->
                 <span>username</span>
-             <!--followers-number-->
-            <div class="followers_number">
-                <span>1.2M subscribers</span>
-
+                <!--followers-number-->
+                <div class="followers_number">
+                    <span>1.2M subscribers</span>
+                </div>
+                <!--subscribe-button-->
             </div>
-           
-            <!--subscribe-button-->
-
         </div>
-        <div class="frame2">
-            <!--explanaton-of-the-video-->
-            <span>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.
-            </span>
-            <!--show-more-button-->
+
+
+        <div class="subscribe-container">
+            <button>
+                subscribe
+            </button>
         </div>
    </div>
 

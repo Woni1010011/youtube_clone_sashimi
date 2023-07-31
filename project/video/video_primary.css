@@ -1,0 +1,127 @@
+html, body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: #f1f1f1;
+} 
+
+
+
+
+.videoplayer {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.videoplayer > div {
+    width: 100%;
+    padding-top: 56.25%;
+    background-color: blue;
+}
+
+.video-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 600;
+    color: #f1f1f1;
+}
+
+
+.info-container {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.views-info > p {
+    padding: 5px;
+}
+
+
+.info-container > .thumb-info{
+    padding-right: 20px;
+}
+
+.info-container > .thumb-info {
+    padding: 0 20px;
+}
+
+.info-container > .thumb-info > p{
+    padding: 10px;
+}
+
+
+
+.userphoto > img {
+    width: 5rem;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 70%;
+}
+
+
+.info-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.info-container > p{
+   color: #aaa; 
+}
+
+
+.channel-container {
+    padding-top: 10px;
+    display: flex;
+}
+
+
+.video-desc-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.channel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.channel-info > span {
+
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+    font-weight: 600;
+    color: #f1f1f1;
+}
+
+
+.followers_number {
+    color: #aaa; 
+}
+
+
+.subscribe-container > button {
+    border-radius: 3%;
+    padding: 5px 15px;
+    margin-right: 20px;
+    font-size: 2rem;
+    border: none;
+    background-color: red;
+    color: #f1f1f1;
+}
+
+.edge-line {
+    margin: 10px 10px;
+    width: 100%;
+    height: 1px;
+    background-color: hsla(0, 0%, 100%, 0.10);;
+}
+/* #aaa */
