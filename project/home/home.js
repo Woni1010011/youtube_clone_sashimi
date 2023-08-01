@@ -132,9 +132,8 @@ let display_tag = (e)=> {
     return tag
 }
 let crate_tag = (json) => {
-    json.flatMap(ele => ele.video_tag)
-    let tag = json.flatMap(ele => ele.video_tag)
-        .map((e)=>document.querySelector(".item_scroll").append(display_tag(e)) )
+    let set = new Set(json.flatMap(ele => ele.video_tag))
+    let tag = [...set].map((e)=>document.querySelector(".item_scroll").append(display_tag(e)) )
     document.querySelector(".item_scroll").append(tag) 
 } 
 
