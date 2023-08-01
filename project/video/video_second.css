@@ -1,0 +1,82 @@
+/* CSS 코드 */
+.content {
+    width: 420px;
+    background-color: black;
+}
+
+.Top-Menu {
+    display: flex; /* Flexbox를 적용하여 자식 요소들을 가로로 정렬합니다. */
+    background-color: black;
+    width: 402px;
+    padding: 1px 12px 2px 0px;
+    align-items: flex-start;
+}
+  
+  /* 각 요소의 스타일을 조정합니다. */
+  .Top-Menu a:not(:last-child) {
+    margin-right: 10px; /* ALL과 From Marcus Levin 사이 간격을 조절합니다. 원하는 크기로 조정해보세요. */
+  }
+  
+  
+  /* 선택된 메뉴 항목에 스타일을 적용합니다. */
+  .item-selected {
+    /* background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px 10px 10px 10px; */
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #333;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 1px;
+    margin-left: 1px;
+    color: #f2f2f2;
+    border: 1px solid #ccc;
+    width: auto;
+    white-space: nowrap;
+    cursor: pointer; /* 클릭 가능한 커서 스타일 설정 */
+}
+
+
+.video {
+    display: flex; /* Flexbox를 이용해 요소들을 가로로 나란히 배치합니다 */
+    padding-top: 8px;
+    padding-bottom: 0px;
+}
+
+
+.video-text {
+    padding: 7px 0px;
+    margin: 0px 8px;
+}
+
+.video-text > span {
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.channel-desc {
+    margin-top: 10%;  
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+
+.channel-views {
+    display: flex; /* 자식 요소들을 한 줄에 표시합니다 */
+    align-items: center; /* 자식 요소들을 세로 중앙 정렬합니다 */
+    text-align: left;
+}
+
+.channel-views p {
+    margin: 0; /* p 요소의 기본 마진을 제거합니다 */
+    padding: 0; /* 간격을 조절합니다 */
+}
