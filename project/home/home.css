@@ -384,8 +384,6 @@ a .item {
     line-height: normal;
 }
 
-
-
 /* chips 마우스 오버 시 스타일 */
 a .item:hover {
     background-color: #ddd;
@@ -550,6 +548,7 @@ a .item:hover {
 }
 
 .thumbnail_item {
+    cursor: pointer;
     margin: 1rem;
     width: 20%;
 }
