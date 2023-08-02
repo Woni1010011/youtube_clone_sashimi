@@ -69,7 +69,7 @@
                                         <img src="assets/home-fill.svg">
                                     </div>
                                     <div class="Menu_Item"></div>
-                                </a>
+                                홈
                             </div>
                             <div class="Menu" id="Explore">
                                 <div class="Explore_Icon">
@@ -108,14 +108,14 @@
                                 <div class="Menu_Item"></div>
                                 내 동영상
                             </div>
-                            <div class="Menu" id="Watch_Later">
+                            <div class="Menu hide" id="Watch_Later">
                                 <div class="Watch_Icon">
                                     <img src="assets/menu-watch-later.svg">
                                 </div>
                                 <div class="Menu_Item"></div>
                                 나중에 볼 동영상
                             </div>
-                            <div class="Menu" id="Liked_Videos">
+                            <div class="Menu hide" id="Liked_Videos">
                                 <div class="Liked_Videos_Icon">
                                     <img src="assets/menu-liked.svg">
                                 </div>
@@ -124,10 +124,10 @@
                             </div>
                             <div class="Menu" id="Top2_Show_More">
                                 <div class="Top2_Show_More_Icon">
-                                    <img src="assets/arrow-bottom.svg">
+                                    <img id="topshowmore" src="assets/arrow-bottom.svg">
                                 </div>
                                 <div class="Menu_Item"></div>
-                                더보기
+                                <p id="topshowmoretext">더보기</p>
                             </div>
                         </div>
                         <div id="SideBar_Subscriptions" class="Box">
@@ -153,11 +153,32 @@
                                     <div class="Menu_Item"></div>
                                     <p class="SideBar_User_Name">User</p>
                                 </div>
+                                <div class="Menu_Sub hide">
+                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
+                                    <div class="Menu_Item"></div>
+                                    <p class="SideBar_User_Name">User</p>
+                                </div>
+                                <div class="Menu_Sub hide">
+                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
+                                    <div class="Menu_Item"></div>
+                                    <p class="SideBar_User_Name">User</p>
+                                </div>
+                                <div class="Menu_Sub hide">
+                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
+                                    <div class="Menu_Item"></div>
+                                    <p class="SideBar_User_Name">User</p>
+                                </div>
+                                <div class="Menu_Sub hide">
+                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
+                                    <div class="Menu_Item"></div>
+                                    <p class="SideBar_User_Name">User</p>
+                                </div>
+
                             </div>
                                 <div class="Menu_Sub" id="SideBar_Show_More">
-                                    <img src="assets/arrow-bottom.svg">
+                                    <img id="icon-down" src="assets/arrow-bottom.svg">
                                     <div class="Menu_Item"></div>
-                                    xx건 더보기
+                                    <p id="submoretext">3건 더보기</p>
                                     </div>
                             </div>
                         </div>
@@ -233,8 +254,8 @@
                                     <img src="assets/top-menu-nextbtn.svg" style="transform: scaleX(-1);">
                                 </div>
                             </button>
-                            <a>
-                                <div class="item" onclick="home_page_load()">ALL</div>
+                            <a href="home.html">
+                                <div class="item">ALL</div>
                             </a>
                                                        
                             <div class="item-end">

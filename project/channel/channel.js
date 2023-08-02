@@ -1,32 +1,93 @@
 
-/*
-구독,구독 취소 버튼 기능(스위치 기능만)
-css는 아래와 동일한 구조로 작성 해야 작동 합니다.
+const subBtn = document.getElementsByClassName("sub")[0];
+let isUnsub = true;
 
-.sub{
-    background-color: ; 
-    border-style: ; 
-    border-radius: ;
-}
-.sub.unsub{
-    background-color: ; 
-    border-style: ; 
-    border-radius: ;
-}
-*/
-const subBtn = document.getElementsByClassName("sub");
-
-subBtn[0].addEventListener('click', function() {
-  subBtn[0].classList.toggle('unsub');
-
-  if (subBtn[0].classList.contains('unsub')) {
-    subBtn[0].innerText = "Subscribe";
-    subBtn[0].style.background = "#C00";
-  } else {
-    subBtn[0].innerText = "Unsubscribe";
-    subBtn[0].style.background = "gray";
-  }
+subBtn.addEventListener('click', function() {
+  isUnsub = !isUnsub;
+  updateButtonStyle();
 });
+
+subBtn.addEventListener('mouseenter', function() {
+  subBtn.classList.add('hover');
+});
+
+subBtn.addEventListener('mouseleave', function() {
+  subBtn.classList.remove('hover');
+});
+
+function updateButtonStyle() {
+  if (isUnsub) {
+    subBtn.innerText = "Subscribe";
+    subBtn.classList.remove('unsub');
+  } else {
+    subBtn.innerText = "Unsubscribe";
+    subBtn.classList.add('unsub');
+  }
+}
+updateButtonStyle();    
+
+
+// 더보기 롤 기능
+
+const submore = document.getElementById('SideBar_Show_More');
+submore.addEventListener('click', showConsole);
+
+function showConsole() {
+
+    // 내용이 펼쳐지는 부분의 요소 선택
+    const content = document.getElementsByClassName('Menu_Sub hide');
+    const icon = document.getElementById('icon-down')
+    for(let i=0; i < content.length; i++){
+        if (content[i].style.display === 'none' || content[i].style.display === '') {
+            content[i].style.display = 'flex';
+        } else {
+            content[i].style.display = 'none';
+        }
+    }
+    const text = document.getElementById("submoretext")
+    if (content[content.length-1].style.display === 'flex'){
+        text.innerText = "접기"
+        icon.style.transform = 'scaleY(-1)'
+    }
+    else{
+        text.innerText = "3건 더보기"
+        icon.style.transform = ''
+    }
+    // content 요소의 display 속성을 변경하여 내용을 펼치거나 숨김
+    
+} 
+
+
+const topmore = document.getElementById('Top2_Show_More');
+topmore.addEventListener('click', TshowConsole);
+
+
+function TshowConsole() {
+
+    // 내용이 펼쳐지는 부분의 요소 선택
+    const content = document.getElementsByClassName('Menu hide');
+    const icon = document.getElementById('topshowmore')
+    for(let i=0; i < content.length; i++){
+        if (content[i].style.display === 'none' || content[i].style.display === '') {
+            content[i].style.display = 'flex';
+        } else {
+            content[i].style.display = 'none';
+        }
+    }
+    const text = document.getElementById("topshowmoretext")
+    if (content[content.length-1].style.display === 'flex'){
+        text.innerText = "접기"
+        icon.style.transform = 'scaleY(-1)'
+    }
+    else{
+        text.innerText = "더보기"
+        icon.style.transform = ''
+    }
+    // content 요소의 display 속성을 변경하여 내용을 펼치거나 숨김
+    
+} 
+
+
 
 
 /* 서버에서 정보 불러오는 기능 
@@ -147,10 +208,39 @@ let displayVideo = function(arr){
     //document.querySelector("div.container_thumbnail")
     arr.forEach((e, index, array)=>{
         if(index == 0)
-            htmlDom += `<div class="row">`;
+            htmlDom += `
+            <div class="row-container">
+                <div class="play-lists">
+                    <div class="content">
+                        <div class="play_title">
+                            <span>Search On'21</span>
+                        </div>
+                        <div class="play_btn">
+                            <div class="play-all-button">
+                                <img src="../assets/sidebar-icons-group.svg">
+                                <p id="play_text">PLAY ALL</div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+            `;
         else if(index % 5 == 0){
             htmlDom += `
                 </div>
+                </div>
+                <div class="row-container">
+                    <div class="play-lists">
+                        <div class="content">
+                            <div class="play_title">
+                                <span>Search On'21</span>
+                            </div>
+                            <div class="play_btn">
+                                <div class="play-all-button">
+                                    <img src="../assets/sidebar-icons-group.svg">
+                                    <p id="play_text">PLAY ALL</div>
+                                </div>
+                            </div>
+                        </div>
                 <div class="row">
                 `;
         }

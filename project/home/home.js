@@ -1,5 +1,3 @@
-
-//http_get 요청을 서버로 보내서 결과값을 가져오는 함수
 let http_get = function (url){
     return new Promise(function(resolve, reject) {
         const xhr = new XMLHttpRequest();
@@ -13,30 +11,22 @@ let http_get = function (url){
                     resolve(JSON.parse(xhr.responseText));
                 } else {
                     console.error("Failed");
-                    reject(xhr.status);
                 }
             }
-        };
+        }
     xhr.send();
-    });
-};
+    })
+}
 
-//promise all로 전부다 실행이 됐을 때만 가져오기
 let videoinfo = function (arr) {
-    return Promise.all(
-        arr.map(async x => {
-            return await http_get(
-                "http://oreumi.appspot.com/video/getVideoInfo?video_id=" + x.video_id
-                );
-            })
-        );
+    return Promise.all(arr.map(async x => {
+      return await http_get("http://oreumi.appspot.com/video/getVideoInfo?video_id=" + x.video_id);
+    }));
 };
 
-//array 배열에 담겨 있는 영상들 화면 띄우기 
 let displayVideo = function(arr){
     let htmlDom = "";
     //document.querySelector("div.container_thumbnail")
-    
     arr.forEach((e, index, array)=>{
         if(index == 0)
             htmlDom += `<div class="row">`;
@@ -81,8 +71,6 @@ let displayVideo = function(arr){
     document.querySelector("div.container_thumbnail").innerHTML = htmlDom;
 }
 
-
-//영상들의 날짜를 받아서 날짜 형식으로 포맷팅 다시 해주기
 let video_date = function(date){
 
     let returnValue = "";
@@ -143,34 +131,27 @@ let display_tag = (e)=> {
     tag.addEventListener('click',tag_event)
     return tag
 }
-
-
 let crate_tag = (json) => {
     let set = new Set(json.flatMap(ele => ele.video_tag))
     let tag = [...set].map((e)=>document.querySelector(".item_scroll").append(display_tag(e)) )
     document.querySelector(".item_scroll").append(tag) 
-}; 
+} 
 
 
 
-//첫 홈페이지가 로드가 됐을 때
+
 let home_page_load = () => {
-    http_get("http://oreumi.appspot.com/video/getVideoList")
-    .then((result) => {
+    http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
         crate_tag(result);
         return videoinfo(result);
-    })
-    .then(result => {
+    }).then((result) => {
         displayVideo(result);
+    }).then((result) => {
+
     })
-    .catch(error => {
-        console.error("Failed to load video info:", error);
-        
+}
 
-    });
-};
 
-home_page_load();
 
 let hashtag_search = function(value){
     
@@ -189,7 +170,7 @@ let hashtag_search = function(value){
 
 
 
-//Enter 누르면 검색
+
 let input_text_ev = function(e) {
     if(  e.currentTarget.value == '' | e.code != "Enter"){
         return 0;
@@ -204,9 +185,9 @@ let input_text_ev = function(e) {
         http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
             console.log(result)
             var a = result.filter((json) => 
-                (json.video_title.indexOf(text) +
-                json.video_channel.indexOf(text) +
-                json.video_detail.indexOf(text)) > -3 ? true:false
+                (json.video_title.indexOf(text) ||
+                json.video_channel.indexOf(text) ||
+                json.video_detail.indexOf(text)) > -1 ? true:false
             )
             return videoinfo(a);
         }).then((result) => {
@@ -218,90 +199,10 @@ let input_text_ev = function(e) {
     
 }
 
-//검색 버튼 누르면 검색
-let searchButtonClicked = function() {
-    let inputElement = document.querySelector(".SerchBox_Text");
-    let text = inputElement.value;
-
-    if (text === '') {
-        return;
-    }
-
-    if (/^#/.test(text)) {
-        hashtag_search(text);
-    } else {
-        // 간단 검색
-        http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
-            var a = result.filter((json) => 
-                (json.video_title.indexOf(text) ||
-                json.video_channel.indexOf(text) ||
-                json.video_detail.indexOf(text)) > -1 ? true : false
-            );
-            return videoinfo(a);
-        }).then((result) => {
-            displayVideo(result);
-        });
-    }
-}
 
 document.querySelector(".SerchBox_Text").addEventListener('keydown',input_text_ev)
-document.querySelector(".SerchBox_Button").addEventListener('click', searchButtonClicked);
 
 
-//  filterVideosBySearchKeyword() 함수의 수정
-function filterVideosBySearchKeyword(videoList, searchKeyword) {
-    return videoList.filter((video) =>
-        video.video_title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        video.video_channel.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        video.video_detail.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        video.video_tag.map(tag => tag.toLowerCase()).includes(searchKeyword.toLowerCase())
-    );
-  }
-  
-// handleSearch() 함수의 수정된 조건문
-function handleSearch() {
-    let searchKeyword = searchBox.value.trim();
-  
-    if (searchKeyword === '') {
-        // 검색어가 없을 때는 모든 비디오를 보여줍니다.
-        http_get("http://oreumi.appspot.com/video/getVideoList")
-            .then(result => {
-                return videoinfo(result);
-            })
-            .then(result => {
-                displayVideo(result);
-            })
-            .catch(error => {
-                console.error("Failed to load video info:", error);
-            });
-    } else {
-        // 검색어가 있을 때는 관련 비디오를 필터링하여 보여줍니다.
-        http_get("http://oreumi.appspot.com/video/getVideoList")
-            .then(result => {
-                var a = filterVideosBySearchKeyword(result, searchKeyword);
-                return videoinfo(a);
-            })
-            .then(result => {
-                displayVideo(result);
-            })
-            .catch(error => {
-                console.error("Failed to load video info:", error);
-            });
-    }
-}
-  
-  // Attach the search functionality to the search button and search box
-  searchButton.addEventListener("click", handleSearch);
-  
-  searchBox.addEventListener("keypress", function (event) {
-    // Enter key's key code is 13
-    if (event.keyCode === 13) {
-      handleSearch();
-    }
-  });
-  
-// Call the handleSearch function initially to show all videos
-handleSearch();
 
 
 
@@ -391,3 +292,62 @@ document.querySelector(".Youtube_Logo").addEventListener("click",gotoHome);
 home_page_load();
 
 
+// 더보기 롤 기능
+
+const submore = document.getElementById('SideBar_Show_More');
+submore.addEventListener('click', showConsole);
+
+function showConsole() {
+
+    // 내용이 펼쳐지는 부분의 요소 선택
+    const content = document.getElementsByClassName('Menu_Sub hide');
+    const icon = document.getElementById('icon-down')
+    for(let i=0; i < content.length; i++){
+        if (content[i].style.display === 'none' || content[i].style.display === '') {
+            content[i].style.display = 'flex';
+        } else {
+            content[i].style.display = 'none';
+        }
+    }
+    const text = document.getElementById("submoretext")
+    if (content[content.length-1].style.display === 'flex'){
+        text.innerText = "접기"
+        icon.style.transform = 'scaleY(-1)'
+    }
+    else{
+        text.innerText = "3건 더보기"
+        icon.style.transform = ''
+    }
+    // content 요소의 display 속성을 변경하여 내용을 펼치거나 숨김
+    
+} 
+
+
+const topmore = document.getElementById('Top2_Show_More');
+topmore.addEventListener('click', TshowConsole);
+
+
+function TshowConsole() {
+
+    // 내용이 펼쳐지는 부분의 요소 선택
+    const content = document.getElementsByClassName('Menu hide');
+    const icon = document.getElementById('topshowmore')
+    for(let i=0; i < content.length; i++){
+        if (content[i].style.display === 'none' || content[i].style.display === '') {
+            content[i].style.display = 'flex';
+        } else {
+            content[i].style.display = 'none';
+        }
+    }
+    const text = document.getElementById("topshowmoretext")
+    if (content[content.length-1].style.display === 'flex'){
+        text.innerText = "접기"
+        icon.style.transform = 'scaleY(-1)'
+    }
+    else{
+        text.innerText = "더보기"
+        icon.style.transform = ''
+    }
+    // content 요소의 display 속성을 변경하여 내용을 펼치거나 숨김
+    
+} 
