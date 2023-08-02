@@ -8,10 +8,7 @@ let http_get = function (url){
             if (xhr.readyState === XMLHttpRequest.DONE){
                 if (xhr.status === 200) {
                     // 데이터를 받아왔을 때 처리하는 부분
-                    // let data = ;
-                    // console.log(xhr.responseText);
                     resolve(JSON.parse(xhr.responseText));
-                    // displayVideoInfo(data);
                 } else {
                     console.error("Failed");
                 }
@@ -25,7 +22,7 @@ let videoinfo = function (arr) {
     return Promise.all(arr.map(async x => {
       return await http_get("http://oreumi.appspot.com/video/getVideoInfo?video_id=" + x.video_id);
     }));
-  };
+};
 
 let displayVideo = function(arr){
     let htmlDom = "";
@@ -49,24 +46,30 @@ let displayVideo = function(arr){
     // views: 225308
 
         htmlDom+=`
-            <div class="thumbnail_item">
+            <div class="thumbnail_item" onclick="thumbnail_click(${e.video_id})">
                 <div class="images">
                     <img class="image" src="${e.image_link}" >
                     <p class="videotime">23:45</p>
                 </div>
                 <div class="thumbnail_info">
-                    <img class="user_avatar" src="oreumi.jpg" >
+               
+                
+                    <a href="../channel/channel.html?video_channel=${e.video_channel}">
+                        <img class="user_avatar" src="oreumi.jpg" >
+                    </a>
+
                     <div class="desc">
-                        <div class="title">${e.video_title}</div>
-                        <div class="chanel_name">${e.video_channel}</div>
-                        <div class="view_time">조회수 ${view_date(e.views)},  ${video_date(e.upload_date)}</div>
+                        
+                            <div class="title">${e.video_title}</div>
+                            <div class="chanel_name">${e.video_channel}</div>
+                            <div class="view_time">조회수 ${view_date(e.views)},  ${video_date(e.upload_date)}</div>
+                        
                     </div>
                 </div>
             </div>`;
         });
     document.querySelector("div.container_thumbnail").innerHTML = htmlDom;
 }
-
 
 let video_date = function(date){
 
@@ -116,17 +119,100 @@ let view_date = function(view){
     return returnValue;
 }
 
-// upload_date
+let tag_event= function(e){
+    let tag = "#"+(e.target).getAttribute("value-tag");
+    hashtag_search(tag);
+}
 
-// views
+
+let display_tag = (e)=> {
+    let tag = document.createElement('a');
+    tag.innerHTML = `<div class="item" value-tag="${e}">${e}</div>`;
+    tag.addEventListener('click',tag_event)
+    return tag
+}
+let crate_tag = (json) => {
+    let set = new Set(json.flatMap(ele => ele.video_tag))
+    let tag = [...set].map((e)=>document.querySelector(".item_scroll").append(display_tag(e)) )
+    document.querySelector(".item_scroll").append(tag) 
+} 
 
 
-http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
-    return videoinfo(result);
-}).then((result) => {
-    displayVideo(result);
+
+
+let home_page_load = () => {
+    http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+        crate_tag(result);
+        return videoinfo(result);
+    }).then((result) => {
+        displayVideo(result);
+    }).then((result) => {
+
+    })
+}
+
+
+
+let hashtag_search = function(value){
     
-})
+    let text = value.replace(/^#/,"");
+        // 해쉬태그 검색
+        http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+            var a = result.filter((json) =>
+                json.video_tag.filter((tag) => tag == text).length > 0 
+            )
+            return videoinfo(a);
+        }).then((result) => {
+            displayVideo(result);
+        })
+}
+
+
+
+
+
+let input_text_ev = function(e) {
+    if(  e.currentTarget.value == '' | e.code != "Enter"){
+        return 0;
+    }
+    let text = e.currentTarget.value;   
+    if(/^#/.test(text)){
+        hashtag_search(e.currentTarget.value);
+    }else{
+        let text = e.currentTarget.value;
+        // simple 검색
+        
+        http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+            console.log(result)
+            var a = result.filter((json) => 
+                (json.video_title.indexOf(text) ||
+                json.video_channel.indexOf(text) ||
+                json.video_detail.indexOf(text)) > -1 ? true:false
+            )
+            return videoinfo(a);
+        }).then((result) => {
+            displayVideo(result);
+        })
+
+
+    }
+    
+}
+
+
+document.querySelector(".SerchBox_Text").addEventListener('keydown',input_text_ev)
+
+
+
+
+
+
+
+
+let thumbnail_click = function(id){
+    location.href  = "../video/video.html?video_id="+id;
+}
+
 
 
 
@@ -158,9 +244,6 @@ function hideElementIfEqualBrowserWidth() {
 
 // 페이지 로드 시 실행합니다.
 hideElementIfEqualBrowserWidth();
-
-
-
 
 const itemscroll = document.getElementsByClassName('item_scroll')
 const nextbtn = document.getElementsByClassName('next_button_frame');
@@ -196,3 +279,16 @@ nextbtn[0].addEventListener('click', function () {
     behavior: 'smooth'
   });
 });
+
+let gotoHome = function(){
+    location.href = "./home.html"
+}
+
+document.querySelector("#Home").addEventListener("click",gotoHome);
+document.querySelector(".Youtube_Logo").addEventListener("click",gotoHome);
+
+
+
+home_page_load();
+
+
