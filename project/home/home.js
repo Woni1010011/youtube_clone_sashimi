@@ -27,6 +27,7 @@ let videoinfo = function (arr) {
 let displayVideo = function(arr){
     let htmlDom = "";
     //document.querySelector("div.container_thumbnail")
+    
     arr.forEach((e, index, array)=>{
         if(index == 0)
             htmlDom += `<div class="row">`;
