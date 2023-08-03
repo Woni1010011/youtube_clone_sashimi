@@ -7,8 +7,9 @@
 .Top-Menu {
     display: flex; /* Flexbox를 적용하여 자식 요소들을 가로로 정렬합니다. */
     background-color: black;
+    padding: 10px;
     width: 402px;
-    padding: 1px 12px 2px 0px;
+    padding: 20px 12px 2px 0px;
     align-items: flex-start;
 }
   
