@@ -316,21 +316,24 @@
                     <div class="small_video">
                         <div class="player">
                             <div class="youtube_player">
-                                <div class="video-player">
-                                    <video src="sample.mp4" controls></video>
-                                    <div class="video-title">Video Title</div>
-                                    <div class="info-button">
+                                <div class="video-player" id="video-container">
+                                    <video id="customVideo" src="../assets/sample.mp4" autoplay muted controls></video>
+                                    <div class="video-title" style="display: none;">Video Title</div>
+                                    <div class="info-button" style="display: none;">
                                         <img src="../assets/ico-info.svg">
                                     </div>
-                                    <div class="controls">
-                                        <div class="video-button" id="play-pause-button">
+                                    <div class="controls" style="display: none;">
+                                        <button class="video-button" id="play-pause-button">
                                             <img src="../assets/ico-play.svg">
-                                        </div>
-                                        <div class="video-button" id="fast-forward-button">
+                                        </button>
+                                        <button class="video-button" id="fast-forward-button">
                                             <img src="../assets/ico-next.svg">
-                                        </div>
-                                        <div class="video-button" id="volume-button">
-                                            <img src="../assets/ico-sound.svg">
+                                        </button>
+                                        <button class="video-button" id="volume-button">
+                                            <img src="../assets/ico-sound-high.svg" id="volume-icon">
+                                        </button>
+                                        <div id="volumeBarContainer" style="display: none;">
+                                            <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="1">
                                         </div>
                                         <div class="time-bar">
                                             <div class="progress">
@@ -338,7 +341,7 @@
                                             </div>
                                         </div>
                                         <div class="progress-time">
-                                            05:05 / 16:51
+                                            <span id="currentTimeDisplay">00:00</span> / <span id="durationDisplay">00:00</span>
                                         </div>
                                         <div class="video-button" id="cc-button">
                                             <img src="../assets/ico-titles.svg">
@@ -352,9 +355,9 @@
                                         <div class="video-button" id="tv-button">
                                             <img src="../assets/ico-tv.svg">
                                         </div>
-                                        <div class="video-button" id="full-button">
+                                        <button class="video-button" id="full-button">
                                             <img src="../assets/ico-fullscreen.svg">
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
