@@ -325,3 +325,167 @@ http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
     displayVideo(result);
     
 })
+
+const videoContainer = document.getElementById("video-container");  
+const video = document.getElementById("customVideo");
+const playPauseButton = document.getElementById("play-pause-button");
+const fastForwardButton = document.getElementById("fast-forward-button");
+const volumeButton = document.getElementById("volume-button");
+const volumeIcon = document.getElementById("volume-icon");
+const volumeBarContainer = document.getElementById("volumeBarContainer");
+const volumeBar = document.getElementById("volumeBar");
+const currentTimeDisplay = document.getElementById("currentTimeDisplay");
+const durationDisplay = document.getElementById("durationDisplay");
+const progressBarContainer = document.querySelector(".progress");
+const currentProgress = document.querySelector(".current-progress");
+const fullButton = document.getElementById("full-button");
+const timeBar = document.getElementsByClassName("time-bar")[0];
+const videoTitle = document.querySelector(".video-title");
+const infoButton = document.querySelector(".info-button");
+const controls = document.querySelector(".controls")
+
+
+
+let isVideoPlaying = false;
+// Play/Pause functionality
+playPauseButton.addEventListener("click", function() {
+    togglePlayPause();
+  });
+// Fast Forward functionality
+fastForwardButton.addEventListener("click", function() {
+  video.currentTime += 10;
+});
+// Volume control functionality
+let isVolumeBarVisible = false;
+volumeButton.addEventListener("click", function() {
+  isVolumeBarVisible = !isVolumeBarVisible;
+  volumeBarContainer.style.display = isVolumeBarVisible ? "block" : "none";  
+});
+
+volumeBar.addEventListener("input", function() {
+  video.volume = volumeBar.value;
+  updateVolumeIcon(volumeBar.value);
+});
+
+function updateVolumeIcon(volume) {
+  if (volume > 0) {
+    volumeIcon.src = "../assets/ico-sound-high.svg";
+  } else {
+    volumeIcon.src = "../assets/ico-sound-mute.svg";
+  }
+}
+
+// 비디오의 볼륨 상태가 변경되면 아이콘 업데이트
+video.addEventListener("volumechange", function() {
+  updateVolumeIcon(video.volume);
+});
+
+// // Toggle Play/Pause on video click
+// videoContainer.addEventListener("click", function(event) {
+//     // 이벤트 버블링 방지
+//     event.stopPropagation();
+//     togglePlayPause();
+//   });
+
+  function togglePlayPause() {
+    if (isVideoPlaying) {
+      video.pause();
+      playPauseButton.innerHTML = '<img src="../assets/ico-play.svg">';
+    } else {
+      video.play();
+      playPauseButton.innerHTML = '<img src="../assets/ico-pause.svg">';
+    }
+    isVideoPlaying = !isVideoPlaying;
+  }
+
+// Update current time display and progress bar
+video.addEventListener("timeupdate", function() {
+  currentTimeDisplay.textContent = formatTime(video.currentTime);
+  const progressPercentage = (video.currentTime / video.duration) * 100;
+  currentProgress.style.width = `${progressPercentage}%`;
+});
+
+// Update duration display on video loadedmetadata event
+video.addEventListener("loadedmetadata", function() {
+  durationDisplay.textContent = formatTime(video.duration);
+});
+
+timeBar.addEventListener("click", function(event) {
+    const clickX = event.offsetX;
+    const timeBarWidth = timeBar.clientWidth;
+    const percentage = clickX / timeBarWidth;
+    const seekTime = percentage * video.duration;
+    video.currentTime = seekTime;
+  });
+
+
+// Format time in seconds to "mm:ss" format
+function formatTime(timeInSeconds) {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+
+video.addEventListener("play", function() {
+    playPauseButton.innerHTML = '<img src="../assets/ico-pause.svg">';
+  });
+  
+  video.addEventListener("pause", function() {
+    playPauseButton.innerHTML = '<img src="../assets/ico-play.svg">';
+  });
+
+
+
+  // 전체화면 상태 변경 이벤트 처리
+  fullButton.addEventListener("click", function() {
+    if (!document.fullscreenElement) {
+        if (videoContainer.requestFullscreen) {
+        videoContainer.requestFullscreen({ navigationUI: "show" });
+        } else if (videoContainer.webkitRequestFullscreen) {
+        videoContainer.webkitRequestFullscreen({ navigationUI: "show" });        
+        } else if (videoContainer.mozRequestFullScreen) {
+        videoContainer.mozRequestFullScreen({ navigationUI: "show" });
+        } else if (videoContainer.msRequestFullscreen) {
+        videoContainer.msRequestFullscreen({ navigationUI: "show" });
+        }
+    } else{
+        document.exitFullscreen();
+    }
+});
+
+timeBar.addEventListener("click", function(event) {
+    const clickX = event.offsetX;
+    const timeBarWidth = timeBar.clientWidth;
+    const percentage = clickX / timeBarWidth;
+    const seekTime = percentage * video.duration;
+    video.currentTime = seekTime;
+  });
+
+
+let timer
+videoContainer.addEventListener("mouseenter", function() {
+    // 타이머가 설정되어 있다면 제거하여 숨김 처리를 취소합니다.
+    clearTimeout(timer);
+  
+    // 컨트롤러 요소를 보이도록 설정합니다.
+    controls.style.display = "flex";
+    videoTitle.style.display = "block";
+    infoButton.style.display = "block";
+  
+    // 일정 시간(예: 3초)이 지난 후에 컨트롤러 요소를 숨깁니다.
+    timer = setTimeout(function() {
+      controls.style.display = "none";
+      videoTitle.style.display = "none";
+      infoButton.style.display = "none";
+    }, 2000); // 3초 후에 숨김 처리
+  });
+  
+  videoContainer.addEventListener("mouseleave", function() {
+    // 마우스가 영상에서 벗어났을 때는 즉시 컨트롤러 요소를 숨깁니다.
+    clearTimeout(timer);
+    controls.style.display = "none";
+    videoTitle.style.display = "none";
+    infoButton.style.display = "none";
+  });
+  
