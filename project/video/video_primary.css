@@ -6,17 +6,19 @@ html, body{
 } 
 
 
-
-
 .videoplayer {
-    width: 100%;
-    padding-bottom: 10px;
+    overflow: hidden;
+    padding-top: 56.25%;
+    height: 0;
+    position: relative;
 }
 
-.videoplayer > div {
+.videoplayer > video {
+    top: 0;
+    left: 0;
     width: 100%;
-    padding-top: 56.25%;
-    background-color: blue;
+    height: 100%;
+    position: absolute;
 }
 
 .video-title {
@@ -53,11 +55,14 @@ html, body{
 }
 
 .userphoto {
+    width: 4rem;
+    height: 4rem;
     padding-left: 10px;
 }
 
 .userphoto > img {
     width: 4rem;
+    height: 4rem;
     flex-shrink: 0;
     align-self: stretch;
     border-radius: 70%;
