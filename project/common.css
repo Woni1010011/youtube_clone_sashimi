@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../src/font/Roboto-Black.ttf") format("truetype"), 
+    url("../src/font/Roboto-Regular.ttf") format("opentype");
+  }
+  
+
 body
 {
     background-color: #212121;
