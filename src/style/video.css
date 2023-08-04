@@ -1,0 +1,482 @@
+html, body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    color: #f1f1f1;
+} 
+
+
+.videoplayer {
+    overflow: hidden;
+    padding-top: 56.25%;
+    height: 0;
+    position: relative;
+}
+
+.videoplayer > video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.video-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 600;
+    color: #f1f1f1;
+    font-family: "YouTube Sans","Roboto",sans-serif;
+}
+
+
+.info-container {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.views-info > p {
+    padding: 5px;
+}
+
+
+.info-container > .thumb-info{
+    padding-right: 20px;
+}
+
+.info-container > .thumb-info {
+    padding: 0 20px;
+}
+
+.info-container > .thumb-info > p{
+    padding: 10px;
+}
+
+.userphoto {
+    width: 4rem;
+    height: 4rem;
+    padding-left: 10px;
+}
+
+.userphoto > img {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 70%;
+}
+
+
+.info-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.info-container > p{
+   color: #aaa; 
+}
+
+
+.channel-container {
+    padding-top: 10px;
+    display: flex;
+}
+
+
+.video-desc-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.channel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.channel-info > span {
+
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+    font-weight: 600;
+    color: #f1f1f1;
+}
+
+
+.followers_number {
+    color: #aaa; 
+}
+
+
+.subscribe-container > button {
+    border-radius: 5px 5px 5px 5px; 
+    padding: 5px 15px;
+    margin-right: 20px;
+    font-size: 1.7rem;
+    border: none;
+    font-family: Roboto;
+    background-color: red;
+    color: #f1f1f1;
+}
+
+
+.subscribe-container > button:hover {
+    /* 호버 효과 스타일 */
+    background-color: rgba(255, 0, 0, 0.829);
+    color: #f1f1f1;
+}
+
+.edge-line {
+    margin: 10px 10px;
+    height: 1px;
+    background-color: hsla(0, 0%, 100%, 0.10);
+}
+/* #aaa */
+
+
+
+.Comment{
+    padding: 24px 0px 32px 0px;   
+}
+
+.short-by{
+    display: inline-flex;
+    padding: 1px 32px 1px 0px;
+    align-items: flex-start;
+}
+
+
+
+.video-comment-info {
+    font-size: 18px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+.comment-count{
+    padding: 0 5px;
+    color: #FFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+}
+
+.comment-label {
+    padding: 0 5px;
+}
+
+.sort-icon {
+    padding-left: 20px;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.sort-label{
+    padding: 0 10px;
+}
+
+
+.small > img {
+    width: 48px;
+    height: 48px;
+}
+
+
+.comment-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    
+}
+.comment-input{
+    display: flex;
+    flex-direction: column;
+    
+    flex: 1 0 auto;
+    justify-content: flex-start;
+     
+}
+
+.comment-input > textarea {
+    
+
+    background-color: transparent;
+    outline: none; 
+    border:none;
+    resize: none;
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+
+
+    position: relative;
+    box-sizing: border-box;   
+    margin: 0 20px ;
+    cursor: text;
+    /* padding-bottom: 4px; */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 100%; /* 1 */
+    vertical-align: baseline; /* 3 */
+    
+    /* vertical-align: middle;  */
+}
+/* 
+.comment-list-container {
+    
+} */
+
+
+.comment-item-info-container {
+    padding-left: 10px;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-item {
+    display: flex;
+    padding-top: 10px;
+}
+.comment-like-info {
+    display: flex;
+    align-items: center;
+}
+
+.comment-like-info > p {
+    padding: 0 10px;
+    
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+
+
+}
+.comment-like-info > spans {
+    padding: 0 10px;
+}
+.comment-date {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+
+.text{
+    padding: 10px 0px 10px 0px;
+}
+
+.topmenu_list{
+    /* height: 3.5rem; */
+    /* top: 3.5rem;
+    left: 17rem;
+    width: 100%; */
+    /* display: flex; */
+    position: relative;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+    background-color: #212121;
+}
+
+.item_scroll {
+    display: flex;
+    overflow-x: auto;
+    flex: 1 auto;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+
+
+.hide {
+    display: none;
+}
+.item_scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+.reverse_next_button_frame{
+    /* display: none;    */
+    /* z-index: 2; */
+    position: absolute;  
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(30,30,30,0.9);
+    border: none;
+    cursor: pointer;
+}
+
+/* 스위치 눌렀을시 스크롤 기능 구현 필요 */
+.next_button_frame{
+    /* z-index: 2; */
+    position: absolute;  
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(30,30,30,0.9);
+    border: none;
+    cursor: pointer;
+}
+
+a .item.toggle {
+    background-color: #FFFFFF;
+    color: #030303;
+    font-family: Roboto;
+}
+a .item {
+    display: inline-block;
+    /* 
+    text-decoration: none;
+    color: #fff; 
+    
+    text-align: center; 
+    word-break: keep-all; 
+    */
+    padding: 0.5rem 0.75rem;
+    border-radius: 2rem; 
+    border: 0.1px solid var(--gray-color, #AAA);
+    background-color: #303030;
+    margin: 12px;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer; 
+}
+
+
+
+
+
+
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+main{
+    padding-top: 10px;
+    width: 100%;
+    height: calc(100vh - 65px);
+    position: relative;
+    background-color: #181818;;
+}
+
+#wrap {
+    padding: 0 5%;    
+    height: 100%;
+    display: flex;
+    flex: 1 auto;
+    
+}
+
+
+section {
+    overflow-y:auto;  
+    width: 75%;
+}
+
+aside {
+    padding: 0 5px;
+    position: relative;
+    width: 25%;
+    min-width: 400px;
+}
+
+.side-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-video-item {
+    display: flex;
+    padding: 5px;
+    height: 100px;
+    
+    position: relative;
+    
+}
+
+.side-video-item-thumbnail {
+    width: 40%;
+    
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.side-video-item-thumbnail > img{
+    border-radius: 5%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.side-video-item-content {
+    margin: 0 7px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.side-video-item-content > p {
+    margin: 0;
+}
+
+
+
+.side-video-item-content-title {
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.side-video-item-content-writer {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+
+.side-video-item-content-date {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+
+
