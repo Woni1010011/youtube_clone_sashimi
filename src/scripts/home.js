@@ -20,7 +20,7 @@ let http_get = function (url){
 
 let videoinfo = function (arr) {
     return Promise.all(arr.map(async x => {
-      return await http_get("http://oreumi.appspot.com/video/getVideoInfo?video_id=" + x.video_id);
+      return await http_get("https://oreumi.appspot.com/video/getVideoInfo?video_id=" + x.video_id);
     }));
 };
 
@@ -55,7 +55,7 @@ let displayVideo = function(arr){
                
                 
                     <a href="../channel/channel.html?video_channel=${e.video_channel}">
-                        <img class="user_avatar" src="oreumi.jpg" >
+                        <img class="user_avatar" src="./src/assets/oreumi.jpg" >
                     </a>
 
                     <div class="desc">
@@ -141,7 +141,7 @@ let crate_tag = (json) => {
 
 
 let home_page_load = () => {
-    http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+    http_get("https://oreumi.appspot.com/video/getVideoList").then((result) => {
         crate_tag(result);
         return videoinfo(result);
     }).then((result) => {
@@ -157,7 +157,7 @@ let hashtag_search = function(value){
     
     let text = value.replace(/^#/,"");
         // 해쉬태그 검색
-        http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+        http_get("https://oreumi.appspot.com/video/getVideoList").then((result) => {
             var a = result.filter((json) =>
                 json.video_tag.filter((tag) => tag == text).length > 0 
             )
@@ -182,7 +182,7 @@ let input_text_ev = function(e) {
         let text = e.currentTarget.value;
         // simple 검색
         
-        http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
+        http_get("https://oreumi.appspot.com/video/getVideoList").then((result) => {
             console.log(result)
             var a = result.filter((json) => 
                 (json.video_title.indexOf(text) ||
