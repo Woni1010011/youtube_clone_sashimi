@@ -16,5 +16,7 @@
 
 git convention : https://youngest-programming.tistory.com/550
    
+### API 주소
+http://oreumi.appspot.com/api-docs
 ### 디자인
 피그마 주소 : https://www.figma.com/file/vwMu7sIP0mhF7Oo0EixwpI/%EC%98%A4%EB%A5%B4%EB%AF%B8-2%EA%B8%B0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8(Youtube-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9)-sashimi?node-id=0%3A1&mode=dev
