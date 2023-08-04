@@ -217,7 +217,7 @@ let displayVideo = function(arr){
                         </div>
                         <div class="play_btn">
                             <div class="play-all-button">
-                                <img src="../assets/sidebar-icons-group.svg">
+                                <img src="./src/assets/sidebar-icons-group.svg">
                                 <p id="play_text">PLAY ALL</div>
                             </div>
                         </div>
@@ -428,11 +428,11 @@ function formatTime(timeInSeconds) {
 
 
 video.addEventListener("play", function() {
-    playPauseButton.innerHTML = '<img src="../assets/ico-pause.svg">';
+    playPauseButton.innerHTML = '<img src="./src/assets/ico-pause.svg">';
   });
   
   video.addEventListener("pause", function() {
-    playPauseButton.innerHTML = '<img src="../assets/ico-play.svg">';
+    playPauseButton.innerHTML = '<img src="./src/assets/ico-play.svg">';
   });
 
 
@@ -488,4 +488,56 @@ videoContainer.addEventListener("mouseenter", function() {
     videoTitle.style.display = "none";
     infoButton.style.display = "none";
   });
+
+
+
+
+
+
+
   
+
+
+
+// sidebar subscriber 정보 적용 : 작성중
+
+let subArray = ['oreumi', '나와 토끼들', '개조']
+
+
+function http_post(name){
+  let xhr = new XMLHttpRequest();  // XMLHttpRequest 객체를 생성합니다.
+let apiUrl = 'http://oreumi.appspot.com/channel/getChannelInfo';  // 요청을 보낼 URL입니다.
+
+xhr.open("POST", apiUrl, true);  // POST 방식으로 요청을 초기화합니다.
+
+let jsonData = {"video_channel": name}  // 요청에 포함할 데이터를 정의합니다.
+
+// 요청의 응답을 처리하는 콜백을 정의합니다.
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+    let response = JSON.parse(xhr.responseText);  // 응답을 JSON 형식으로 파싱합니다.
+
+    // 데이터가 존재하는지 확인합니다.
+    if (response && response.channel_name !== undefined) {
+      // 각 데이터를 콘솔에 출력합니다.
+      console.log(response.channel_name);
+      console.log(response.banner);
+      console.log(response.profile);
+      console.log(response.subscribers);
+    }
+  }
+};
+
+xhr.setRequestHeader("Content-Type", "application/json");  // 요청의 헤더를 설정합니다.
+xhr.send(JSON.stringify(jsonData));  // 요청을 보냅니다.
+  
+}
+
+for(let i = 0; i < subArray.length; i++){
+  console.log(http_post(subArray[i]))
+}
+
+
+let subscrriptions = document.getElementsByClassName("Menu_Sub")
+console.log(subscrriptions[0])
+
