@@ -1,10 +1,12 @@
 # youtube_clone_sashimi
+
 ## 08.07 담당자
 1. html : 종윤님
 2. css_1 : 민서님
 3. css_2 : 현빈님
 4. js_1 : 주형님
 5. js_2 : 성원님
+
 
 ## 규칙
 ### **html -> css_1 -> js_1 -> css_2 -> js_2 -> html** 순으로 진행
