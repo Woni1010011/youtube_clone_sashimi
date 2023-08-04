@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="project/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="src/style/common.css">
+    <link rel="stylesheet" href="src/style/video.css">
 </head>
 <body>
     <div class="container">
@@ -60,194 +62,229 @@
             </div>
         </header>
         <main>
-            <aside>
-                <!-- <div class="sidebar">
-                    <div id="Container_SideBar">
-                        <div id="Top" class="Box">
-                            <div class="Menu" id="Home">
-                                    <div class="Home_Icon">
-                                        <img src="assets/home-fill.svg">
-                                    </div>
-                                    <div class="Menu_Item"></div>
-                                홈
+            <div id="wrap">
+                <section>
+                    <div class="videoplayer">
+                        <!-- <div> -->
+                            <!--chatgpt한테 영상 넣어달라고 부탁해서 넣었습니다.. ㅠ-->
+                            <!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/FhKh-lj9qtg" frameborder="0"
+                                allowfullscreen></iframe> -->
+                                <video controls autoplay=true width=500 poster="./src/assets/oreumi.jpg">
+                                    <source src='https://storage.googleapis.com/oreumi.appspot.com/video_0.mp4' type='video/mp4'/>
+                                  </video>
+                        <!-- </div> -->
+                    </div>
+                    <!--Video-Info-->
+                    <div class="video-info">
+                        <div>               
+                            <span class="video-title">Awesome Video Title</span>
+                            <div class="info-container">
+                                <div class="views-info">
+                                    <p class="views-count">576,969</p>
+                                    <p>views .</p>
+                                    <p class="upload -info">Oct 8 2021</p>
+                                </div>
+                
+                                <div class="thumb-info">
+                                    <span class="material-symbols-outlined">thumb_up</span>
+                                    <p>200</p>
+                                    <span class="material-symbols-outlined">thumb_down</span>
+                                    <p>200</p>
+                                    <p class="svg-icon">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M15 5.63 20.66 12 15 18.37V14h-1c-3.96 0-7.14 1-9.75 3.09 1.84-4.07 5.11-6.4 9.89-7.1l.86-.13V5.63M14 3v6C6.22 10.13 3.11 15.33 2 21c2.78-3.97 6.44-6 12-6v6l8-9-8-9z" fill="white"></path></svg>
+                                    </p>
+                                    
+                                    <p class="svg-icon">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M7.5 12c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm4.5-1.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm6 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" fill="white"></path></svg>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="Menu" id="Explore">
-                                <div class="Explore_Icon">
-                                    <img src="assets/explore.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                찾아보기
-                            </div>
-                            <div class="Menu" id="Subscriptions">
-                                <div class="Subscriptions_Icon">
-                                    <img src="assets/menu-subscriptions.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                구독
-                            </div>
-                        </div>
-                        <div id="Top2" class="Box">
-                            <div class="Menu" id="Library">
-                                <div class="Library_Icon">
-                                    <img src="assets/menu-library.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                보관함
-                            </div>
-                            <div class="Menu" id="History">
-                                <div class="History_Icon">
-                                    <img src="assets/history.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                시청기록
-                            </div>
-                            <div class="Menu" id="Your_Videos">
-                                <div class="Your_Videos_Icon">
-                                    <img src="assets/menu-your-videos.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                내 동영상
-                            </div>
-                            <div class="Menu hide" id="Watch_Later">
-                                <div class="Watch_Icon">
-                                    <img src="assets/menu-watch-later.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                나중에 볼 동영상
-                            </div>
-                            <div class="Menu hide" id="Liked_Videos">
-                                <div class="Liked_Videos_Icon">
-                                    <img src="assets/menu-liked.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                좋아요 한 동영상
-                            </div>
-                            <div class="Menu" id="Top2_Show_More">
-                                <div class="Top2_Show_More_Icon">
-                                    <img id="topshowmore" src="assets/arrow-bottom.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                <p id="topshowmoretext">더보기</p>
-                            </div>
-                        </div>
-                        <div id="SideBar_Subscriptions" class="Box">
-                            <div class="SideBar_Title">SUBSCRRIPTIONS</div>
-                            <div class="Subscriptions_Container">
-                                <div class="Menu_Sub">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub hide">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub hide">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub hide">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-                                <div class="Menu_Sub hide">
-                                    <img src="oreumi.jpg" class="SideBar_User_Avatar">
-                                    <div class="Menu_Item"></div>
-                                    <p class="SideBar_User_Name">User</p>
-                                </div>
-
-                            </div>
-                                <div class="Menu_Sub" id="SideBar_Show_More">
-                                    <img id="icon-down" src="assets/arrow-bottom.svg">
-                                    <div class="Menu_Item"></div>
-                                    <p id="submoretext">3건 더보기</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div id="More_From" class="Box">
-                            <div class="SideBar_Title">More From YouTube</div>
-                            <div class="Menu" id="YouTube_Premium">
-                                <div class="YouTube_Premium_Icon">
-                                    <img src="assets/menu-premium.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                유튜브 프리미엄
-                            </div>
-                            <div class="Menu" id="Gaming">
-                                <div class="Gaming_Icon">
-                                    <img src="assets/gaming.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                게임
-                            </div>
-                            <div class="Menu" id="Live">
-                                <div class="Live_Icon">
-                                    <img src="assets/menu-live.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                생방송
-                            </div>
-                            <div class="Menu" id="Sports">
-                                <div class="Sports_Icon">
-                                    <img src="assets/menu-sports.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                스포츠
-                            </div>
-                        </div>
-                        <div id="Bottom" class="Box">
-                            <div class="Menu" id="Setting">
-                                <div class="Setting_Icon">
-                                    <img src="assets/menu-settings.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                설정
-                            </div>
-                            <div class="Menu" id="Report_History">
-                                <div class="Report_History_Icon">
-                                    <img src="assets/menu-report.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                신고 내역
-                            </div>
-                            <div class="Menu" id="Help">
-                                <div class="Help_Icon">
-                                    <img src="assets/menu-help.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                도움말
-                            </div>
-                            <div class="Menu" id="Send_Feedback">
-                                <div class="Send_Feedback_Icon">
-                                    <img src="assets/menu-feedback.svg">
-                                </div>
-                                <div class="Menu_Item"></div>
-                                피드백 보내기
+                            <!--공유 아이콘: 찾지 못함-->
                         </div>
                     </div>
-                </div>  -->
-            </aside>
-            <section>
+                    <div class="edge-line"></div>
+                    <!--Video-Desc-->
+                   <div class="video-desc-container">
+                        <div class="channel-container"> <!--frame1 : userphoto,name, subscribers number, subscribe button-->
                 
-            </section>
+                            <!--user-photo-->
+                
+                            
+                            <div class="userphoto">
+                                <img src="./src/assets/oreumi.jpg" alt="Image description">
+                            </div>
+                
+                            <div class="channel-info">
+                                <!--user-name-->
+                                <span>username</span>
+                                <!--followers-number-->
+                                <div class="followers_number">
+                                    <span>1.2M subscribers</span>
+                                </div>
+                                <!--subscribe-button-->
+                            </div>
+                        </div>
+                
+                
+                        <div class="subscribe-container">
+                            <button>
+                                SUBSCRBE
+                            </button>
+                        </div>
+                   </div>
+                
+                   <div class="edge-line"></div>
+                   <div class="comment-container">
+                        <div class="video-comment-info">
+                            <span class="comment-count">
+                                286
+                            </span>
+                            <span class="comment-label">
+                                Comments
+                            </span>
+                
+                            <div class="sort-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
+                                    <path d="M18 1H0V0H18V1ZM12 6H0V7H12V6ZM6 12H0V13H6V12Z" fill="white"/>
+                                </svg>                
+                            </div>
+                
+                            <span class="sort-label">
+                                SORT BY
+                            </span>
+                            
+                        </div>
+                        <div class="comment-input-container">
+                            <div class="userphoto small">
+                                <img src="./src/assets/oreumi.jpg" alt="Image description">
+                            </div>
+                
+                            <div class="comment-input"> 
+                                     <textarea >이게 최선이였다고 한다</textarea>
+                                <div class="edge-line"></div>
+                            </div>
+                        </div>
+                        <div class="comment-list-container">
+                            <div class="comment-item">
+                                <div class="userphoto small">
+                                    <img src="./src/assets/oreumi.jpg" alt="Image description">
+                                </div>
+                                <div class="comment-item-info-container">
+                                    <div class="comment-item-container-info">
+                                        <span class="comment-name">James Gouse</span>
+                                        <span class="comment-date">8 hours ago</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        Wow, world is full of different skills 
+                                    </div>
+                                    <div class="comment-like-info">
+                                        <span class="material-symbols-outlined">thumb_up</span>
+                                        <p>200</p>
+                                        <span class="material-symbols-outlined">thumb_down</span>
+                                        <p>200</p>
+                                        <span>REPLY</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="comment-item">
+                                <div class="userphoto small">
+                                    <img src="./src/assets/oreumi.jpg" alt="Image description">
+                                </div>
+                                <div class="comment-item-info-container">
+                                    <div class="comment-item-container-info">
+                                        <span class="comment-name">James Gouse</span>
+                                        <span class="comment-date">8 hours ago</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        Wow, world is full of different skills 
+                                    </div>
+                                    <div class="comment-like-info">
+                                        <span class="material-symbols-outlined">thumb_up</span>
+                                        <p>200</p>
+                                        <span class="material-symbols-outlined">thumb_down</span>
+                                        <p>200</p>
+                                        <span>REPLY</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </section>
+                <aside>
+                    <!-- 해쉬태그 시작 -->
+                    <div class="topmenu_list">
+                        <button class="reverse_next_button_frame hide">
+                            <div class="reverse_next_button">
+                                <img src="./src/assets/top-menu-nextbtn.svg" style="transform: scaleX(-1);">
+                            </div>
+                        </button>
+
+                        <div class="item_scroll">
+
+                            <a href="home.html">
+                                <div class="item toggle">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+                            <a href="#">
+                                <div class="item">ALL</div>
+                            </a>
+
+
+                        </div>
+                        <!-- <div class="item-end"> -->
+                        <button class="next_button_frame">
+                            <div class="next_button">
+                                <img src="./src/assets/top-menu-nextbtn.svg">
+                            </div>
+                        </button>
+                        <!-- </div> -->
+                    </div>
+                    <!-- 해쉬태그 끝 -->
+                    <div class="side-list">
+                        <div class="side-video-item">
+                            <div class="side-video-item-thumbnail">
+                                <img src="https://storage.googleapis.com/oreumi.appspot.com/img_3.jpg" alt="">
+                            </div>
+                            <div class="side-video-item-content">
+                                <p class="side-video-item-content-title">Ep 6: Living to Serve | SEARCH ON</p>
+                                <p class="side-video-item-content-writer">James Gouse</p>
+                                <p class="side-video-item-content-date">1M views . 3 years ago</p>
+                            </div>
+                        </div>  
+
+                
+
+                       
+                    </div>
+                </aside>
+            </div>
         </main>
     </div>
     
