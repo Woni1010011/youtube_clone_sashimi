@@ -1,3 +1,34 @@
+const urlParams = new URLSearchParams(window.location.search);
+const videoChannel = urlParams.get('video_channel');
+const channelName = document.getElementById('chname');
+const subs = document.getElementById('subs');
+const container = document.getElementsByClassName('container')[0];
+
+
+
+
+// videoChannel 값에 따라 다른 내용을 표시
+switch (videoChannel) {
+  case 'oreumi':
+    channelName.innerText = videoChannel;
+    subs.innerText = '1.8M subscribers'
+    break;
+  case '나와 토끼들':
+    channelName.innerText = videoChannel;
+    subs.innerText = '81.2K subscribers'
+    break;
+  case '개조':
+    channelName.innerText = videoChannel;
+    subs.innerText = '618 subscribers'
+    break;
+  default:
+    container.innerHTML = '<h1>페이지를 찾을수 없습니다.</h1>';
+    break;
+}
+
+
+
+
 
 const subBtn = document.getElementsByClassName("sub")[0];
 let isUnsub = true;
@@ -101,15 +132,14 @@ function TshowConsole() {
 </div>
 
 대략적인 방식으로 작성하였기 때문에 html 구조 변경 필요시 childNodes 쪽 수정하셔서 사용하시면 됩니다.
-*/
+// */
 // const videos = document.getElementsByClassName("video");
 // let x = 0;
-// let date = new Date();
 
 // function createVideoItem(video_id) {
 //     // XMLHttpRequest 객체 생성
 //     let xhr = new XMLHttpRequest();
-  
+    
 //     // API 요청 설정
 //     let apiUrl = `http://oreumi.appspot.com/video/getVideoInfo?video_id=${x}`;
 //     xhr.open("GET", apiUrl, true);
@@ -118,9 +148,18 @@ function TshowConsole() {
 //             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
 //                 // 가져온 응답 처리
 //                 let response = JSON.parse(xhr.responseText);
-        
-//                 // 데이터 있는지 확인
+               
+                
+                
+// //                 // 데이터 있는지 확인
 //                 if (response && response.video_id !== undefined) {
+//                   // console.log(response);
+//                   videoList.push(response)
+//                   x++;
+//                   createVideoItem(video_id);  
+                  
+//                 }
+                
 //                 // 각 데이터들을 콘솔에 출력
 //                 // console.log(response.video_id);
 //                 // console.log(response.image_link);
@@ -160,8 +199,8 @@ function TshowConsole() {
 //                 video_id[x].childNodes[9].innerHTML = convertDate;
 //                 x++;  
 
-//                 // 다음 video_id로 재귀 호출
-//                 createVideoItem(video_id);
+                // 다음 video_id로 재귀 호출
+                // createVideoItem(video_id);
 //                 }
 //             }
 //         }
@@ -171,6 +210,7 @@ function TshowConsole() {
 
 // //아이템 불러오기
 // createVideoItem(videos);
+
 
 
 
@@ -203,10 +243,14 @@ let videoinfo = function (arr) {
     }));
   };
 
+
+let videoList = [];  
+
 let displayVideo = function(arr){
     let htmlDom = "";
     //document.querySelector("div.container_thumbnail")
     arr.forEach((e, index, array)=>{
+      if(e.video_channel === videoChannel){
         if(index == 0)
             htmlDom += `
             <div class="row-container">
@@ -236,7 +280,7 @@ let displayVideo = function(arr){
                             </div>
                             <div class="play_btn">
                                 <div class="play-all-button">
-                                    <img src="../assets/sidebar-icons-group.svg">
+                                    <img src="./src/assets/sidebar-icons-group.svg">
                                     <p id="play_text">PLAY ALL</div>
                                 </div>
                             </div>
@@ -265,8 +309,21 @@ let displayVideo = function(arr){
                     <div class="chanel_name">${e.video_channel}</div>
                     <div class="view_time">조회수 ${view_date(e.views)},  ${video_date(e.upload_date)}</div>
                 </div>
-            </div>`;
-        });
+              </div>`;
+            videoList.push(e);
+    }});
+    // let mostViewedVideo = videoList[0];
+    const mostViewedVideo = videoList.reduce( (prev, value) => {
+      return prev.views > value.views ? prev : value
+    });
+    document.getElementById("customVideo").src = mostViewedVideo.video_link;
+    document.getElementById("vidtitle").innerText = mostViewedVideo.video_title;
+    document.getElementById("title_video").innerText = mostViewedVideo.video_title;
+    document.getElementById("info_video").innerText = `${view_date(mostViewedVideo.views)} / ${video_date(mostViewedVideo.upload_date)}`;
+    document.getElementById("dsc").innerText = mostViewedVideo.video_detail;
+    document.getElementById("modaltext").innerText = mostViewedVideo.video_detail;
+
+    
     document.querySelector("div.container-play-lists").innerHTML = htmlDom;
 }
 
@@ -323,7 +380,8 @@ http_get("http://oreumi.appspot.com/video/getVideoList").then((result) => {
     return videoinfo(result);
 }).then((result) => {
     displayVideo(result);
-    
+}).then((result) => {
+
 })
 
 const videoContainer = document.getElementById("video-container");  
@@ -343,10 +401,21 @@ const timeBar = document.getElementsByClassName("time-bar")[0];
 const videoTitle = document.querySelector(".video-title");
 const infoButton = document.querySelector(".info-button");
 const controls = document.querySelector(".controls")
+const modalBg = document.getElementById('modalBg');
+const closeModal = document.getElementById('closeModal');
 
 
+// i 버튼을 클릭하면 모달 창을 표시하는 함수
+infoButton.addEventListener("click", function() {
+  modalBg.style.display = "flex";
+});
 
-let isVideoPlaying = false;
+    // 모달 창 닫기 버튼 클릭 시 모달 창을 숨기는 함수
+closeModal.addEventListener("click", function() {
+  modalBg.style.display = "none";
+});
+
+let isVideoPlaying = true;
 // Play/Pause functionality
 playPauseButton.addEventListener("click", function() {
     togglePlayPause();
@@ -355,8 +424,10 @@ playPauseButton.addEventListener("click", function() {
 fastForwardButton.addEventListener("click", function() {
   video.currentTime += 10;
 });
-// Volume control functionality
+
 let isVolumeBarVisible = false;
+
+
 volumeButton.addEventListener("click", function() {
   isVolumeBarVisible = !isVolumeBarVisible;
   volumeBarContainer.style.display = isVolumeBarVisible ? "block" : "none";  
@@ -369,31 +440,45 @@ volumeBar.addEventListener("input", function() {
 
 function updateVolumeIcon(volume) {
   if (volume > 0) {
-    volumeIcon.src = "../assets/ico-sound-high.svg";
+    volumeIcon.src = "src/assets/ico-sound-high.svg";
   } else {
-    volumeIcon.src = "../assets/ico-sound-mute.svg";
+    volumeIcon.src = "src/assets/ico-sound-mute.svg";
   }
 }
+
+video.volume = 0;
+// 사용자 오디오 가져오기
+navigator.mediaDevices.getUserMedia({ audio: false })
+  .then((stream) => {
+    // 사용자 오디오를 video의 오디오 트랙에 연결
+    const audioTracks = stream.getAudioTracks();
+    if (audioTracks.length > 0) {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const audioSource = audioContext.createMediaStreamSource(new MediaStream([audioTracks[0]]));  
+      const videoElementSource = audioContext.createMediaElementSource(video);
+      
+      // 사용자 오디오와 커스텀 비디오의 오디오를 연결
+      audioSource.connect(audioContext.destination);
+      videoElementSource.connect(audioContext.destination);
+      
+    }
+  })
+  .catch((error) => {
+    console.error("권한 오류:", error);
+  });
 
 // 비디오의 볼륨 상태가 변경되면 아이콘 업데이트
 video.addEventListener("volumechange", function() {
   updateVolumeIcon(video.volume);
 });
 
-// // Toggle Play/Pause on video click
-// videoContainer.addEventListener("click", function(event) {
-//     // 이벤트 버블링 방지
-//     event.stopPropagation();
-//     togglePlayPause();
-//   });
-
   function togglePlayPause() {
     if (isVideoPlaying) {
       video.pause();
-      playPauseButton.innerHTML = '<img src="../assets/ico-play.svg">';
+      playPauseButton.innerHTML = '<img src="src/assets/ico-play.svg">';
     } else {
       video.play();
-      playPauseButton.innerHTML = '<img src="../assets/ico-pause.svg">';
+      playPauseButton.innerHTML = '<img src="src/assets/ico-play.svg">';
     }
     isVideoPlaying = !isVideoPlaying;
   }
@@ -428,11 +513,11 @@ function formatTime(timeInSeconds) {
 
 
 video.addEventListener("play", function() {
-    playPauseButton.innerHTML = '<img src="./src/assets/ico-pause.svg">';
+    playPauseButton.innerHTML = '<img src="src/assets/ico-pause.svg">';
   });
   
   video.addEventListener("pause", function() {
-    playPauseButton.innerHTML = '<img src="./src/assets/ico-play.svg">';
+    playPauseButton.innerHTML = '<img src="src/assets/ico-play.svg">';
   });
 
 
@@ -473,12 +558,12 @@ videoContainer.addEventListener("mouseenter", function() {
     videoTitle.style.display = "block";
     infoButton.style.display = "block";
   
-    // 일정 시간(예: 3초)이 지난 후에 컨트롤러 요소를 숨깁니다.
-    timer = setTimeout(function() {
-      controls.style.display = "none";
-      videoTitle.style.display = "none";
-      infoButton.style.display = "none";
-    }, 2000); // 3초 후에 숨김 처리
+    // // 일정 시간(예: 3초)이 지난 후에 컨트롤러 요소를 숨깁니다.
+    // timer = setTimeout(function() {
+    //   controls.style.display = "none";
+    //   videoTitle.style.display = "none";
+    //   infoButton.style.display = "none";
+    // }, 2000); // 3초 후에 숨김 처리
   });
   
   videoContainer.addEventListener("mouseleave", function() {
@@ -520,10 +605,10 @@ xhr.onreadystatechange = function () {
     // 데이터가 존재하는지 확인합니다.
     if (response && response.channel_name !== undefined) {
       // 각 데이터를 콘솔에 출력합니다.
-      console.log(response.channel_name);
-      console.log(response.banner);
-      console.log(response.profile);
-      console.log(response.subscribers);
+      // console.log(response.channel_name);
+      // console.log(response.banner);
+      // console.log(response.profile);
+      // console.log(response.subscribers);
     }
   }
 };
@@ -540,4 +625,3 @@ for(let i = 0; i < subArray.length; i++){
 
 let subscrriptions = document.getElementsByClassName("Menu_Sub")
 console.log(subscrriptions[0])
-

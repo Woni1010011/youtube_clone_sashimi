@@ -263,8 +263,8 @@
                         
                                     </div>
                                     <div class="profile_name">
-                                        <p class="channel_name">oreumi</p>
-                                        <p>1.2M subscribers</p>
+                                        <p class="channel_name" id="chname">oreumi</p>
+                                        <p id="subs">1.2M subscribers</p>
                                     </div>
                                 </div>
                                 <div class="sub_bnt">
@@ -317,10 +317,16 @@
                         <div class="player">
                             <div class="youtube_player">
                                 <div class="video-player" id="video-container">
-                                    <video id="customVideo" src="./src/assets/sample.mp4" autoplay muted controls></video>
-                                    <div class="video-title" style="display: none;">Video Title</div>
+                                    <video id="customVideo" src="" autoplay controls></video>
+                                    <div id="vidtitle" class="video-title" style="display: none;"></div>
                                     <div class="info-button" style="display: none;">
                                         <img src="./src/assets/ico-info.svg">
+                                    </div>
+                                    <div class="modal-bg" id="modalBg">
+                                        <div class="modal-content">
+                                            <button id="closeModal">X</button>
+                                            <p id="modaltext"></p>
+                                        </div>
                                     </div>
                                     <div class="controls" style="display: none;">
                                         <button class="video-button" id="play-pause-button">
@@ -330,10 +336,10 @@
                                             <img src="./src/assets/ico-next.svg">
                                         </button>
                                         <button class="video-button" id="volume-button">
-                                            <img src="./src/assets/ico-sound-high.svg" id="volume-icon">
+                                            <img src="./src/assets/ico-sound-mute.svg" id="volume-icon">
                                         </button>
                                         <div id="volumeBarContainer" style="display: none;">
-                                            <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="1">
+                                            <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="0">
                                         </div>
                                         <div class="time-bar">
                                             <div class="progress">
@@ -346,15 +352,19 @@
                                         <div class="video-button" id="cc-button">
                                             <img src="./src/assets/ico-titles.svg">
                                         </div>
+                                        <div class="tooltip1">사용불가</div>
                                         <div class="video-button" id="setting-button">
                                             <img src="./src/assets/ico-hd.svg">
                                         </div>
+                                        <div class="tooltip2">사용불가</div>
                                         <div class="video-button" id="theater-button">
                                             <img src="./src/assets/ico-theater.svg">
                                         </div>
+                                        <div class="tooltip3">사용불가</div>
                                         <div class="video-button" id="tv-button">
                                             <img src="./src/assets/ico-tv.svg">
                                         </div>
+                                        <div class="tooltip4">사용불가</div>
                                         <button class="video-button" id="full-button">
                                             <img src="./src/assets/ico-fullscreen.svg">
                                         </button>
@@ -364,17 +374,12 @@
                         </div>
                             <div class="video_desc">
                                 <div class="video_title">
-                                    <p id="title_video">
-                                        타이틀
-                                    </p>
+                                    <p id="title_video"></p>
                                     <p id="info_video">
                                         views / date
                                     </p>
                                 </div>
-                            <div class="descriptions">
-                                chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  chirsFisher, also  
-                                
-                            </div>
+                            <div class="descriptions" id="dsc"></div>
                         </div>
                     </div>
                     <div class="container-play-lists">
