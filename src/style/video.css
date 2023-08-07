@@ -348,29 +348,27 @@ a .item.toggle {
     color: #030303;
     font-family: Roboto;
 }
+
 a .item {
     display: inline-block;
-    /* 
     text-decoration: none;
-    color: #fff; 
-    
-    text-align: center; 
-    word-break: keep-all; 
-    */
     padding: 0.5rem 0.75rem;
-    border-radius: 2rem; 
     border: 0.1px solid var(--gray-color, #AAA);
     background-color: #303030;
-    margin: 12px;
+    border-radius: 2rem; 
+    color: #fff; 
+
+    text-align: center; 
+    word-break: keep-all; 
+    margin: 12px 12px 12px 12px;
     color: var(--white-color, #FFF);
     font-family: Roboto;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    cursor: pointer; 
+    cursor: pointer;
 }
-
 
 
 
