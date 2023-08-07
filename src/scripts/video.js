@@ -193,8 +193,6 @@ let similarityVideoList = async function(taget, videoTagList){
 }
 
 let videoMerge = function(similarityList,videoinfoList){
-    similarityList = similarityList.sort((a,b) => a.score < b.score);
-
 
     for(similarity of similarityList){
         for(videoinfo of videoinfoList){
@@ -203,7 +201,13 @@ let videoMerge = function(similarityList,videoinfoList){
             }
         }
     }
-    return similarityList;
+
+    let similarityListSort = similarityList.sort(function(a,b){
+        if(a.score > b.score) return 1;
+        if(a.score === b.score) return 0;
+        if(a.score < b.score) return -1;
+    });
+    return similarityListSort;
 }
 
 let video_date = function(date){
