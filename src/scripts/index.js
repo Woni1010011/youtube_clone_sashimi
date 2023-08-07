@@ -54,7 +54,7 @@ let displayVideo = function(arr){
                 <div class="thumbnail_info">
                
                 
-                    <a href="../channel/channel.html?video_channel=${e.video_channel}">
+                    <a href="channel.html?video_channel=${e.video_channel}">
                         <img class="user_avatar" src="./src/assets/oreumi.jpg" >
                     </a>
 
