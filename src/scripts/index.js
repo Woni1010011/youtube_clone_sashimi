@@ -237,22 +237,22 @@ let hashtag_search = function(value){
 
 
 let input_text_ev = function(e) {
-    if(  e.currentTarget.value == '' | e.code != "Enter"){
-        return 0;
+    if(e.type == 'keydown'){
+        if(this.value == '' | e.keyCode != '13'){
+            return 0;
+        }
     }
-    let text = e.currentTarget.value;   
+    let text = document.querySelector(".SerchBox_Text").value;   
     if(/^#/.test(text)){
         hashtag_search(e.currentTarget.value);
     }else{
-        let text = e.currentTarget.value;
         // simple 검색
         
         http_get("https://oreumi.appspot.com/video/getVideoList").then((result) => {
-            console.log(result)
             var a = result.filter((json) => 
-                (json.video_title.indexOf(text) ||
-                json.video_channel.indexOf(text) ||
-                json.video_detail.indexOf(text)) > -1 ? true:false
+                (json.video_title.indexOf(text) +
+                json.video_channel.indexOf(text) +
+                json.video_detail.indexOf(text)) > -3 ? true:false
             )
             return videoinfo(a);
         }).then((result) => {
@@ -267,10 +267,7 @@ let input_text_ev = function(e) {
 
 document.querySelector(".SerchBox_Text").addEventListener('keydown',input_text_ev)
 
-
-
-
-
+document.querySelector(".SerchBox_Button").onclick = input_text_ev;
 
 
 
