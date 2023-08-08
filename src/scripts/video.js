@@ -255,6 +255,10 @@ let viewsFormat = function(view){
 }
 
 
+
+let gotoLink = function(id){
+    location.href = "./video.html?video_id="+id
+}
 let displaySideVideoList = function(arr){
     let html = "";
 
@@ -273,8 +277,8 @@ let displaySideVideoList = function(arr){
         // views: 454819
 
 
-
-        html += `<div class="side-video-item">
+        
+        html += `<div class="side-video-item" onclick="gotoLink(${data.videoId})">
                         <div class="side-video-item-thumbnail">
                             <img src="${data.videoinfo.image_link}" alt="">
                         </div>

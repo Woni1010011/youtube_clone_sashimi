@@ -423,9 +423,8 @@ aside {
     display: flex;
     padding: 5px;
     height: 100px;
-    
     position: relative;
-    
+    cursor: pointer;
 }
 
 .side-video-item-thumbnail {
