@@ -1,9 +1,6 @@
-
-
 const videoInfoUrl = "https://oreumi.appspot.com/video/getVideoInfo"
 const videoListUrl = "https://oreumi.appspot.com/video/getVideoList"
 const channelInfoUrl = "https://oreumi.appspot.com/channel/getChannelInfo"
-
 
 const openApiURL = "http://aiopen.etri.re.kr:8000/WiseWWN/WordRel";
 const access_key = "fb97afdd-ac4f-473d-844f-d049aac49dd7";
@@ -349,12 +346,12 @@ let videosTagList = async function(){
 }
 
 let displayHashTag = function(arr){
-    let html = `<a href="home.html">
+    let html = `<a href="./index.html">
                     <div class="item toggle">ALL</div>
                 </a>`
 
     for(let item of arr){
-        html += `<a href="">
+        html += `<a>
                     <div class="item ">${item}</div>
                 </a>`
     }
