@@ -210,7 +210,7 @@ document.querySelector(".SerchBox_Text").addEventListener('keydown',input_text_e
 
 
 let thumbnail_click = function(id){
-    location.href  = "../video/video.html?video_id="+id;
+    location.href  = "./video.html?video_id="+id;
 }
 
 
