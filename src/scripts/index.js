@@ -1,3 +1,44 @@
+const channelInfoUrl = "https://oreumi.appspot.com/channel/getChannelInfo"
+let httpMethod =  function (url,params={},Method="GET",headers){
+    return new Promise(function(resolve, reject) {
+        const xhr = new XMLHttpRequest();
+        let queryString =  new URLSearchParams(params).toString();
+        if(Method == "GET"){
+            xhr.open(Method, url+"?"+queryString);
+        }else{
+            xhr.open(Method, url);
+        }
+
+
+        if(headers != null){
+            Object.keys(headers).forEach((el)=>{
+                xhr.setRequestHeader(el, headers[el]);
+            })
+            
+        }else{
+            xhr.setRequestHeader('content-type', 'application/json');
+        }
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE){
+                if (xhr.status === 200) {
+                    // 데이터를 받아왔을 때 처리하는 부분
+                    resolve(JSON.parse(xhr.responseText));
+                } else {
+                    console.error("Failed");
+                    reject(xhr.status);
+                }
+            }
+        };
+        if(Method != "GET"){
+            xhr.send(JSON.stringify(params));
+        }else{
+            xhr.send();
+        }
+        
+    });
+};
+
 let http_get = function (url){
     return new Promise(function(resolve, reject) {
         const xhr = new XMLHttpRequest();
@@ -24,7 +65,31 @@ let videoinfo = function (arr) {
     }));
 };
 
-let displayVideo = function(arr){
+
+let channelInfoList = function (arr) {
+    return Promise.all(
+        arr.map(async x => {
+            return await httpMethod(channelInfoUrl,{"video_channel":x},"POST")
+        }));
+};
+
+
+
+let displayVideo = async function(arr){
+
+    let channelSet = arr.reduce(function(acc,cur){
+        acc.add(cur.video_channel);
+        return acc
+    },new Set());
+
+    let channelList = await channelInfoList(Array.from(channelSet))
+    console.log(channelList)
+    let channelObject = {}
+    for(let channel of channelList){
+        channelObject[channel.channel_name] = channel
+    }
+
+
     let htmlDom = "";
     //document.querySelector("div.container_thumbnail")
     arr.forEach((e, index, array)=>{
@@ -55,7 +120,7 @@ let displayVideo = function(arr){
                
                 
                     <a href="channel.html?video_channel=${e.video_channel}">
-                        <img class="user_avatar" src="./src/assets/oreumi.jpg" >
+                        <img class="user_avatar" src="${channelObject[e.video_channel].channel_profile}" >
                     </a>
 
                     <div class="desc">
